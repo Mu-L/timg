@@ -2,12 +2,7 @@
 
 set -e
 
-CLANG_FORMAT=clang-format
-
-# If we have preferred, more specific version, use that.
-if command -v clang-format-13 ; then
-    CLANG_FORMAT=clang-format-13
-fi
+CLANG_FORMAT="${CLANG_FORMAT:-clang-format}"
 
 FORMAT_OUT=${TMPDIR:-/tmp}/clang-format-diff.out
 
