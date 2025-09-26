@@ -202,7 +202,7 @@ const char *QueryBackgroundColor() {
             // We might've gotten some spurious bytes in the beginning from
             // keypresses, so find where the color starts.
             const char *found = find_str(data, len, "rgb:");
-            return strchr(found, '\\') ? found : nullptr;
+            return found && strchr(found, '\\') ? found : nullptr;
         });
 
     if (!start_color) return nullptr;
